@@ -1,0 +1,32 @@
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 1001;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-primary);
+  opacity: 1;
+  transition: var(--transition);
+  transition-property: opacity;
+}
+
+.icon {
+  width: 54px;
+  height: 54px;
+  animation: scale 1s ease-in-out infinite forwards;
+}
+
+@keyframes scale {
+  0% {
+    scale: 1;
+  }
+
+  50% {
+    scale: 0.9;
+  }
+
+  100% {
+    scale: 1;
+  }
+}

@@ -1,0 +1,12 @@
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-block: 70px 40px;
+}
+
+@media (width <= 768px) {
+  .main {
+    padding-block: 35px 20px;
+  }
+}

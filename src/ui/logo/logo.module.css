@@ -1,0 +1,32 @@
+.logo {
+  color: var(--foreground-primary);
+  transition: var(--transition);
+  transition-property: color;
+}
+
+@media (hover: hover) {
+  .logo:hover {
+    color: var(--foreground-secondary);
+  }
+}
+
+@media (hover: none) {
+  .logo:active {
+    color: var(--foreground-secondary);
+  }
+}
+
+.logo:focus {
+  outline: none;
+}
+
+.logo:focus-visible {
+  outline: var(--outline);
+  outline-offset: var(--outline-offset);
+}
+
+@media (width <= 768px) {
+  .logo {
+    max-width: 100px;
+  }
+}

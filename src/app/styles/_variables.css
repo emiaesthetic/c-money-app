@@ -1,0 +1,84 @@
+:root {
+  /* Colors */
+  --color-dark: #210b36;
+  --color-white: #fff;
+  --color-light-purple: #c6b6d7;
+  --color-purple: #9c19ca;
+  --color-dark-purple: #392350;
+  --color-indigo: #4b00ca;
+  --color-green: #00cd67;
+  --color-orange: #ffa500;
+  --color-red: #ff4d4d;
+  --color-gray: #a6a6a6;
+
+  /* Gradients */
+  --linear-gradient: linear-gradient(
+    47deg,
+    #2e00b1 0%,
+    #8100bd 48.44%,
+    #a400be 100%
+  );
+  --linear-gradient-hover: linear-gradient(
+    47deg,
+    #a400be 0%,
+    #8100bd 50%,
+    #2e00b1 100%,
+    #2e00b1 100%
+  );
+  --linear-gradient-focus: linear-gradient(
+    47deg,
+    #2e00b1 0%,
+    #a400be 50%,
+    #2e00b1 100%,
+    #2e00b1 100%
+  );
+  --button-active: #2e00b1;
+
+  /* Container */
+  --container-width: 1180px;
+  --container-padding-x: 30px;
+
+  /* Backgrounds */
+  --background-primary: var(--color-dark);
+  --background-secondary: var(--color-dark-purple);
+
+  /* Foregrounds */
+  --foreground-primary: var(--color-white);
+  --foreground-secondary: var(--color-light-purple);
+
+  /* Fonts */
+  --font-primary: 'Nunito', sans-serif;
+  --font-secondary: 'Comfortaa', sans-serif;
+  --font-size-large: 40px;
+  --font-size-auth: 38px;
+  --font-size-card: 32px;
+  --font-size-medium: 26px;
+  --font-size-controls: 18px;
+  --font-size-base: 15px;
+  --font-size-small: 14px;
+
+  /* Borders */
+  --border-radius-large: 10px;
+  --border-radius-medium: 8px;
+  --border-radius-small: 6px;
+
+  /* Outline */
+  --outline: 2px solid var(--color-light-purple);
+  --outline-offset: 2px;
+
+  /* Transition */
+  --transition: all 0.2s ease-in-out;
+}
+
+@media (width <= 768px) {
+  :root {
+    /* Container */
+    --container-padding-x: 15px;
+
+    /* Fonts */
+    --font-size-auth: 26px;
+    --font-size-controls: 15px;
+    --font-size-base: 12px;
+    --font-size-small: 11px;
+  }
+}

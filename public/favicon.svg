@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" width="38" height="38"><svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="SvgjsMask1014" fill="white">
+<rect width="25" height="25" rx="1"></rect>
+</mask>
+<rect width="25" height="25" rx="1" stroke="#B865D6" stroke-width="4" mask="url(#path-1-inside-1_42_468)"></rect>
+<mask id="SvgjsMask1013" fill="white">
+<rect x="13" y="13" width="25" height="25" rx="1"></rect>
+</mask>
+<rect x="13" y="13" width="25" height="25" rx="1" stroke="#4B00CA" stroke-width="4" mask="url(#path-2-inside-2_42_468)"></rect>
+</svg><style>@media (prefers-color-scheme: light) { :root { filter: none; } }
+@media (prefers-color-scheme: dark) { :root { filter: none; } }
+</style></svg>
