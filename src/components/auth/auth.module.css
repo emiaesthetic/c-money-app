@@ -1,0 +1,29 @@
+.auth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 580px;
+  padding: 50px 100px;
+  border-radius: var(--border-radius-large);
+  background: var(--background-secondary);
+}
+
+@media (width <= 768px) {
+  .wrapper {
+    max-width: 420px;
+    padding: 30px 50px;
+  }
+}
+
+@media (width <= 480px) {
+  .wrapper {
+    max-width: 320px;
+    padding: 30px 40px;
+  }
+}

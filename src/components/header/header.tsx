@@ -1,3 +1,4 @@
+import { useAuth } from '@/hooks';
 import { Button } from '@/ui/button';
 import { Layout } from '@/ui/layout';
 import { Logo } from '@/ui/logo';
@@ -7,17 +8,13 @@ import styles from './header.module.css';
 import ExitIcon from './img/exit.svg?react';
 
 export const Header = () => {
-  const { isAuth } = { isAuth: false };
-
-  const logout = () => {
-    console.log('Exit');
-  };
+  const { isAuth, logout } = useAuth();
 
   return (
     <div className={styles.header}>
       <Layout>
         <div className={styles.container}>
-          <Logo isAuth={!!isAuth} />
+          <Logo isAuth={isAuth} />
 
           {isAuth && (
             <div className={styles.nav}>

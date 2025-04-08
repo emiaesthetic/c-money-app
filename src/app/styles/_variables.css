@@ -49,8 +49,7 @@
   /* Fonts */
   --font-primary: 'Nunito', sans-serif;
   --font-secondary: 'Comfortaa', sans-serif;
-  --font-size-large: 40px;
-  --font-size-auth: 38px;
+  --font-size-large: 38px;
   --font-size-card: 32px;
   --font-size-medium: 26px;
   --font-size-controls: 18px;
@@ -76,9 +75,16 @@
     --container-padding-x: 15px;
 
     /* Fonts */
-    --font-size-auth: 26px;
+    --font-size-large: 28px;
     --font-size-controls: 15px;
     --font-size-base: 12px;
     --font-size-small: 11px;
+  }
+}
+
+@media (width <= 480px) {
+  :root {
+    /* Fonts */
+    --font-size-large: 24px;
   }
 }

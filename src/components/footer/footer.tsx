@@ -1,10 +1,11 @@
+import { useAuth } from '@/hooks';
 import { Layout } from '@/ui/layout';
 import { Logo } from '@/ui/logo';
 
 import styles from './footer.module.css';
 
 export const Footer = () => {
-  const { isAuth } = { isAuth: false };
+  const { isAuth } = useAuth();
 
   return (
     <footer className={styles.footer}>
