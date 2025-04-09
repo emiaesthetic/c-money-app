@@ -13,7 +13,7 @@ import {
 
 interface IAuthResponse {
   payload: { token: string } | null;
-  error: string | null;
+  error: string;
 }
 
 function* fetchToken(action: PayloadAction<IFormData>) {
@@ -46,7 +46,7 @@ function* fetchToken(action: PayloadAction<IFormData>) {
     }
   } catch (error) {
     const message =
-      error instanceof AxiosError ? error.message : 'Something wrong...';
+      error instanceof AxiosError ? error.message : 'Что-то пошло не так...';
 
     yield put(authFailureRequest(message));
   }

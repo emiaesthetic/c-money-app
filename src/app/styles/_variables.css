@@ -75,7 +75,9 @@
     --container-padding-x: 15px;
 
     /* Fonts */
-    --font-size-large: 28px;
+    --font-size-large: 30px;
+    --font-size-card: 24px;
+    --font-size-medium: 20px;
     --font-size-controls: 15px;
     --font-size-base: 12px;
     --font-size-small: 11px;

@@ -65,6 +65,7 @@
 .iconText:focus-visible,
 .icon:focus-visible {
   outline: var(--outline);
+  outline-offset: 2px;
 }
 
 .large {
@@ -97,5 +98,10 @@
 @media (width <= 768px) {
   .large {
     padding: 15.5px 20px;
+  }
+
+  .medium {
+    padding: 8px 20px;
+    border-radius: var(--border-radius-medium);
   }
 }

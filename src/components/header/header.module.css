@@ -36,6 +36,14 @@
   }
 }
 
+.link:focus {
+  outline: none;
+}
+
+.link:focus-visible {
+  outline: var(--outline);
+}
+
 @media (width <= 768px) {
   .header {
     padding-block: 10px;
