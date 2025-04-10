@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import { IAccount } from '@/types';
 import { formatBalance, formatDate, getIsoDate } from '@/utils';
 
@@ -6,9 +8,9 @@ import styles from './card.module.css';
 export const Card = ({ account, balance, date, transactions }: IAccount) => {
   return (
     <li className={styles.card}>
-      <a className={`${styles.cardLink}`} href="/account">
+      <Link className={`${styles.cardLink}`} to={`/account/${account}`}>
         <span className={`visuallyHidden`}>{`Перейти к счету ${account}`}</span>
-      </a>
+      </Link>
       <p className={styles.cardId} aria-hidden="true">
         {account}
       </p>

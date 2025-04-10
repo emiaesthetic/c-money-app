@@ -1,0 +1,58 @@
+.history {
+  flex-basis: calc(50% - 10px);
+}
+
+.tableWrapper {
+  overflow: hidden;
+  overflow-y: auto;
+  max-height: 467px;
+  padding: 16px 20px;
+  border-radius: var(--border-radius-large);
+  background-color: var(--background-secondary);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-base);
+}
+
+.tableTh {
+  padding: 12px;
+  border-bottom: 1px solid var(--color-dark);
+  border-left: 1px solid var(--color-dark);
+  font-weight: 400;
+  text-align: left;
+  color: var(--foreground-secondary);
+}
+
+.tableTh:first-child {
+  padding-left: 0;
+  border-left: none;
+}
+
+.tableTd {
+  padding: 12px;
+  border-left: 1px solid var(--color-dark);
+}
+
+.tableTd:first-child {
+  padding-left: unset;
+  border-left: none;
+}
+
+.positiveNum {
+  color: var(--color-green);
+}
+
+.positiveNum:before {
+  content: '+';
+}
+
+.negativeNum {
+  color: var(--color-red);
+}
+
+.negativeNum:before {
+  content: '-';
+}

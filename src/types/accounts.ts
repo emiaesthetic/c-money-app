@@ -1,4 +1,4 @@
-interface ITransaction {
+export interface ITransaction {
   amount: number;
   date: string;
   from: string;
@@ -11,4 +11,24 @@ export interface IAccount {
   date: string;
   mine: boolean;
   transactions: ITransaction[];
+}
+
+export interface IAccountResponse {
+  payload: IAccount;
+  error: string;
+}
+
+export interface IAccountsResponse {
+  payload: IAccount[];
+  error: string;
+}
+
+export interface ITransactionForm {
+  account: string;
+  amount: number;
+}
+
+export interface ITransactionResponse {
+  payload: ITransaction;
+  error: string;
 }

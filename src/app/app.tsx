@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 
+import { Account } from '@/components/account';
 import { Auth } from '@/components/auth';
 import { AuthGuard } from '@/components/auth/guard';
 import { Footer } from '@/components/footer';
@@ -18,8 +19,10 @@ export const App = () => {
           <Routes>
             <Route path="/" element={<Auth />} />
             <Route path="/login" element={<Auth />} />
-            <Route path="/accounts" element={<AuthGuard />}>
-              <Route index element={<Home />} />
+
+            <Route element={<AuthGuard />}>
+              <Route path="/accounts" element={<Home />} />
+              <Route path="/account/:id" element={<Account />} />
             </Route>
           </Routes>
         </Main>

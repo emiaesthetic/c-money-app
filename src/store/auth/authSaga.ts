@@ -2,7 +2,7 @@ import { PayloadAction } from '@reduxjs/toolkit';
 import axios, { AxiosError, AxiosResponse } from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
-import { IFormData } from '@/types';
+import { IAuthResponse, IFormData } from '@/types';
 import { API } from '@/utils';
 
 import {
@@ -10,11 +10,6 @@ import {
   authRequest,
   authSuccessRequest,
 } from './authSlice';
-
-interface IAuthResponse {
-  payload: { token: string } | null;
-  error: string;
-}
 
 function* fetchToken(action: PayloadAction<IFormData>) {
   const { username: login, password } = action.payload;

@@ -88,5 +88,7 @@
   :root {
     /* Fonts */
     --font-size-large: 24px;
+    --font-size-card: 20px;
+    --font-size-medium: 18px;
   }
 }

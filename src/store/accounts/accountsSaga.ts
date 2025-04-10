@@ -1,7 +1,7 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
-import { IAccount } from '@/types';
+import { IAccountResponse, IAccountsResponse } from '@/types';
 import { API, authStorage } from '@/utils';
 
 import {
@@ -12,16 +12,6 @@ import {
   createAccountRequest,
   createAccountSuccess,
 } from './accountsSlice';
-
-interface IAccountsResponse {
-  payload: IAccount[];
-  error: string;
-}
-
-interface IAccountResponse {
-  payload: IAccount;
-  error: string;
-}
 
 function* fetchAccounts() {
   const token = authStorage.getToken();

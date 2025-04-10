@@ -1,8 +1,13 @@
-import { Navigate, Outlet } from 'react-router-dom';
+import { Navigate, Outlet, useLocation } from 'react-router-dom';
 
 import { useAuth } from '@/hooks';
 
 export const AuthGuard = () => {
   const { isAuth } = useAuth();
-  return !isAuth ? <Navigate to="/login" replace /> : <Outlet />;
+  const location = useLocation();
+
+  if (!isAuth) {
+    return <Navigate to="/login" state={{ from: location.pathname }} replace />;
+  }
+  return <Outlet />;
 };

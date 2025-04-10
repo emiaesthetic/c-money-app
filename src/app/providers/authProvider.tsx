@@ -1,6 +1,6 @@
 import { ReactNode, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import { AuthContext } from '@/contexts';
 import { RootState } from '@/store';
@@ -18,6 +18,8 @@ export const AuthProvider = ({ children }: Props) => {
   );
   const token = authStorage.getToken();
   const dispatch = useDispatch();
+
+  const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -33,7 +35,8 @@ export const AuthProvider = ({ children }: Props) => {
     const isAuthPage = ['/', '/login'].includes(currentPath);
 
     if (isAuth && isAuthPage) {
-      navigate('/accounts', { replace: true });
+      const redirectPath = location.state?.from || '/accounts';
+      navigate(redirectPath, { replace: true });
       return;
     }
 
@@ -41,7 +44,7 @@ export const AuthProvider = ({ children }: Props) => {
       navigate('/login', { replace: true });
       return;
     }
-  }, [isAuth, loading, navigate]);
+  }, [isAuth, loading, location, navigate]);
 
   const login = (data: IFormData) => {
     dispatch(authRequest(data));
