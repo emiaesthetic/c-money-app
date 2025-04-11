@@ -1,11 +1,16 @@
 import { Link } from 'react-router-dom';
 
 import { IAccount } from '@/types';
-import { formatBalance, formatDate, getIsoDate } from '@/utils';
 
 import styles from './card.module.css';
 
-export const Card = ({ account, balance, date, transactions }: IAccount) => {
+export const Card = ({
+  account,
+  transactions,
+  formattedBalance,
+  formattedDate,
+  isoDate,
+}: IAccount) => {
   return (
     <li className={styles.card}>
       <Link className={`${styles.cardLink}`} to={`/account/${account}`}>
@@ -14,12 +19,12 @@ export const Card = ({ account, balance, date, transactions }: IAccount) => {
       <p className={styles.cardId} aria-hidden="true">
         {account}
       </p>
-      <p className={styles.cardBalance}>{formatBalance(balance)}</p>
+      <p className={styles.cardBalance}>{formattedBalance}</p>
       <div className={styles.cardInfo}>
         <div className={styles.cardOpen}>
           <p className={styles.cardLabel}>открыт</p>
-          <time className={styles.cardTime} dateTime={getIsoDate(date)}>
-            {formatDate(date)}
+          <time className={styles.cardTime} dateTime={isoDate}>
+            {formattedDate}
           </time>
         </div>
 
@@ -28,9 +33,9 @@ export const Card = ({ account, balance, date, transactions }: IAccount) => {
             <p className={styles.cardLabel}>последняя операция</p>
             <time
               className={styles.cardTime}
-              dateTime={getIsoDate(transactions[0].date)}
+              dateTime={transactions[0].isoDate}
             >
-              {formatDate(transactions[0].date)}
+              {transactions[0].formattedDate}
             </time>
           </div>
         )}

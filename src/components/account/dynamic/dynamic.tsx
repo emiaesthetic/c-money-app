@@ -44,7 +44,7 @@ const CHART_OPTIONS: ChartOptions<'line'> = {
         title: () => '',
         label: function (context) {
           const value = context.parsed.y;
-          return `${Math.round(value)} ₽`;
+          return `${value.toFixed(2)} ₽`;
         },
       },
       backgroundColor: '#210b36',
@@ -69,6 +69,10 @@ const CHART_OPTIONS: ChartOptions<'line'> = {
     x: {
       grid: {
         display: false,
+      },
+      ticks: {
+        font: { size: 14 },
+        color: '#c6b6d7',
       },
     },
     y: {

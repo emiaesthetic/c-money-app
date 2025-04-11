@@ -3,6 +3,10 @@ export interface ITransaction {
   date: string;
   from: string;
   to: string;
+  balanceBefore?: number;
+  balanceAfter?: number;
+  formattedDate?: string | null;
+  isoDate?: string | undefined;
 }
 
 export interface IAccount {
@@ -11,6 +15,9 @@ export interface IAccount {
   date: string;
   mine: boolean;
   transactions: ITransaction[];
+  formattedBalance?: string | null;
+  formattedDate?: string | null;
+  isoDate?: string | undefined;
 }
 
 export interface IAccountResponse {

@@ -1,6 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { IAccount } from '@/types';
+import {
+  formatBalance,
+  formatDate,
+  getIsoDate,
+  processAccountTransactions,
+} from '@/utils';
 
 const initialState: {
   data: IAccount[];
@@ -23,7 +29,13 @@ const accountsSlice = createSlice({
       state.loading = true;
     },
     accountsSuccessRequest: (state, action: PayloadAction<IAccount[]>) => {
-      state.data = action.payload;
+      state.data = action.payload.map(account => ({
+        ...account,
+        transactions: processAccountTransactions(account),
+        formattedBalance: formatBalance(account.balance),
+        formattedDate: formatDate(account.date),
+        isoDate: getIsoDate(account.date),
+      }));
       state.error = '';
       state.loading = false;
     },
@@ -37,7 +49,13 @@ const accountsSlice = createSlice({
       state.creating = true;
     },
     createAccountSuccess: (state, action: PayloadAction<IAccount>) => {
-      state.data = [...state.data, action.payload];
+      const newAccount = {
+        ...action.payload,
+        formattedBalance: formatBalance(action.payload.balance),
+        formattedDate: formatDate(action.payload.date),
+        isoDate: getIsoDate(action.payload.date),
+      };
+      state.data = [newAccount, ...state.data];
       state.error = '';
       state.creating = false;
     },

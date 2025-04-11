@@ -23,12 +23,11 @@ export const Account = () => {
   const { data, error, errorTransaction, loading, isProcessing } =
     useAccount(id);
   const showLoading = useDelayLoading(loading);
-  console.log(errorTransaction);
 
   const currentYear = new Date().getFullYear();
   const [year, setYear] = useState<number>(currentYear);
   const [chartData, setChartData] = useState(
-    prepareChartData(data?.account, data?.transactions, year),
+    data ? prepareChartData(data, year) : null,
   );
 
   const dispatch = useDispatch();
@@ -53,7 +52,7 @@ export const Account = () => {
 
   useEffect(() => {
     if (data) {
-      setChartData(prepareChartData(data.account, data.transactions, year));
+      setChartData(prepareChartData(data, year));
     }
   }, [data, year]);
 
@@ -75,7 +74,7 @@ export const Account = () => {
         </header>
         <div className={styles.accountContent}>
           <Dynamic
-            data={chartData}
+            data={chartData || prepareChartData(data, year)}
             onChange={handleChange}
             selectOptions={getSelectOptions()}
           />

@@ -27,7 +27,6 @@ export const History = ({ account, transactions }: Props) => {
           </thead>
           <tbody className={styles.tableBody}>
             {[...transactions]
-              .reverse()
               .slice(0, 20)
               .map(({ amount, date, to, from }, index) => (
                 <tr key={index}>

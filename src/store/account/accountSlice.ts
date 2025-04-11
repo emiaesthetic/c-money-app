@@ -1,6 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { IAccount, ITransactionForm } from '@/types';
+import {
+  formatBalance,
+  formatDate,
+  getIsoDate,
+  processAccountTransactions,
+} from '@/utils';
 
 const initialState: {
   data: IAccount | null;
@@ -22,10 +28,17 @@ const accountSlice = createSlice({
   reducers: {
     accountRequest: (state, _: PayloadAction<string>) => {
       state.error = '';
+      state.errorTransaction = '';
       state.loading = true;
     },
     accountSuccessRequest: (state, action: PayloadAction<IAccount>) => {
-      state.data = action.payload;
+      state.data = {
+        ...action.payload,
+        transactions: processAccountTransactions(action.payload),
+        formattedBalance: formatBalance(action.payload.balance),
+        formattedDate: formatDate(action.payload.date),
+        isoDate: getIsoDate(action.payload.date),
+      };
       state.error = '';
       state.loading = false;
     },
@@ -39,7 +52,13 @@ const accountSlice = createSlice({
       state.isProcessing = true;
     },
     accountTransactionSuccess: (state, action: PayloadAction<IAccount>) => {
-      state.data = action.payload;
+      state.data = {
+        ...action.payload,
+        transactions: processAccountTransactions(action.payload),
+        formattedBalance: formatBalance(action.payload.balance),
+        formattedDate: formatDate(action.payload.date),
+        isoDate: getIsoDate(action.payload.date),
+      };
       state.errorTransaction = '';
       state.isProcessing = false;
     },
