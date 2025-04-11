@@ -1,44 +1,74 @@
 .history {
-  flex-basis: calc(50% - 10px);
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
 }
 
 .tableWrapper {
-  overflow: hidden;
-  overflow-y: auto;
+  overflow-x: auto;
   max-height: 467px;
   padding: 16px 20px;
   border-radius: var(--border-radius-large);
   background-color: var(--background-secondary);
 }
 
-.table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: var(--font-size-base);
+.header {
+  display: grid;
+  grid-template-columns: minmax(150px, 2fr) minmax(100px, 1fr) minmax(
+      100px,
+      1fr
+    );
+  column-gap: 12px;
+  border-bottom: 1px solid var(--color-dark);
+  scrollbar-gutter: stable;
 }
 
-.tableTh {
+.header.hasScroll {
+  overflow-y: scroll;
+  scrollbar-color: transparent transparent;
+}
+
+.header.hasScroll::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+.header.hasScroll::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.headerCell {
   padding: 12px;
-  border-bottom: 1px solid var(--color-dark);
   border-left: 1px solid var(--color-dark);
   font-weight: 400;
   text-align: left;
   color: var(--foreground-secondary);
 }
 
-.tableTh:first-child {
+.headerCell:first-child {
   padding-left: 0;
   border-left: none;
 }
 
-.tableTd {
-  padding: 12px;
-  border-left: 1px solid var(--color-dark);
+.row {
+  display: grid;
+  grid-template-columns: minmax(150px, 2fr) minmax(100px, 1fr) minmax(
+      100px,
+      1fr
+    );
+  column-gap: 12px;
 }
 
-.tableTd:first-child {
+.rowCell {
+  padding: 12px;
+  border-left: 1px solid var(--color-dark);
+  font-weight: 700;
+}
+
+.rowCell:first-child {
+  overflow: hidden;
   padding-left: unset;
   border-left: none;
+  text-overflow: ellipsis;
 }
 
 .positiveNum {
@@ -55,4 +85,20 @@
 
 .negativeNum:before {
   content: '-';
+}
+
+.virtualList {
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.virtualList::-webkit-scrollbar {
+  display: none;
+}
+
+@media (width <= 1280px) {
+  .history {
+    flex-basis: unset;
+    width: 100%;
+  }
 }

@@ -1,6 +1,7 @@
 .dynamic {
-  flex-shrink: 1;
-  flex-basis: calc(50% - 10px);
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
   font-size: var(--font-size-base);
   color: var(--foreground-secondary);
 }
@@ -31,4 +32,11 @@
 
 .dynamicSelect:focus {
   outline: none;
+}
+
+@media (width <= 1280px) {
+  .dynamic {
+    flex-basis: unset;
+    width: 100%;
+  }
 }

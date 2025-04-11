@@ -1,3 +1,6 @@
+import React from 'react';
+import { FixedSizeList as List } from 'react-window';
+
 import { ITransaction } from '@/types';
 import { Heading } from '@/ui/heading';
 import { formatDate } from '@/utils';
@@ -10,6 +13,34 @@ interface Props {
 }
 
 export const History = ({ account, transactions }: Props) => {
+  const Row = ({
+    index,
+    style,
+  }: {
+    index: number;
+    style: React.CSSProperties;
+  }) => {
+    const { amount, date, to, from } = transactions[index];
+    const isOutgoing = from === account;
+
+    return (
+      <div className={styles.row} style={style} role="row">
+        <div className={styles.rowCell} role="cell">
+          {isOutgoing ? to : from}
+        </div>
+        <div
+          className={`${styles.rowCell} ${isOutgoing ? styles.negativeNum : styles.positiveNum}`}
+          role="cell"
+        >
+          {amount}
+        </div>
+        <div className={styles.rowCell} role="cell">
+          {formatDate(date)}
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div className={styles.history}>
       <Heading level="h3" size="sizeMedium" marginBottom="mbSmall">
@@ -17,32 +48,23 @@ export const History = ({ account, transactions }: Props) => {
       </Heading>
 
       <div className={styles.tableWrapper}>
-        <table className={styles.table}>
-          <thead className={styles.tableHead}>
-            <tr>
-              <th className={styles.tableTh}>Счет</th>
-              <th className={styles.tableTh}>Сумма</th>
-              <th className={styles.tableTh}>Дата</th>
-            </tr>
-          </thead>
-          <tbody className={styles.tableBody}>
-            {[...transactions]
-              .slice(0, 20)
-              .map(({ amount, date, to, from }, index) => (
-                <tr key={index}>
-                  <td className={styles.tableTd}>
-                    {from === account ? to : from}
-                  </td>
-                  <td
-                    className={`${styles.tableTd} ${from === account ? styles.negativeNum : styles.positiveNum}`}
-                  >
-                    {amount}
-                  </td>
-                  <td className={styles.tableTd}>{formatDate(date)}</td>
-                </tr>
-              ))}
-          </tbody>
-        </table>
+        <div
+          className={`${styles.header} ${transactions.length > 9 ? styles.hasScroll : ''}`}
+          role="rowgroup"
+        >
+          <div className={styles.headerCell}>Счет</div>
+          <div className={styles.headerCell}>Сумма</div>
+          <div className={styles.headerCell}>Дата</div>
+        </div>
+
+        <List
+          height={372}
+          itemCount={transactions.length}
+          itemSize={42}
+          width="100%"
+        >
+          {Row}
+        </List>
       </div>
     </div>
   );
