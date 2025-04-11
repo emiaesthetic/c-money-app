@@ -103,8 +103,8 @@ export const Dynamic = ({ data, selectOptions, onChange }: Props) => {
           id="chart"
           onChange={onChange}
         >
-          {selectOptions.map(year => (
-            <option value={`${year}`}>{`${year}`}</option>
+          {selectOptions.map((year, index) => (
+            <option key={index} value={`${year}`}>{`${year}`}</option>
           ))}
         </select>
         {data && <Line data={data} options={CHART_OPTIONS} />}

@@ -4,9 +4,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 import { AuthContext } from '@/contexts';
 import { RootState } from '@/store';
-import { authClearState, authRequest, authUpdateState } from '@/store/auth';
+import { authClearState, authRequest } from '@/store/auth';
 import { IFormData } from '@/types';
-import { authStorage } from '@/utils';
 
 interface Props {
   children: ReactNode;
@@ -20,14 +19,6 @@ export const AuthProvider = ({ children }: Props) => {
   const dispatch = useDispatch();
   const location = useLocation();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const token = authStorage.getToken();
-
-    if (token) {
-      dispatch(authUpdateState(token));
-    }
-  }, [dispatch]);
 
   useEffect(() => {
     if (loading) return;
