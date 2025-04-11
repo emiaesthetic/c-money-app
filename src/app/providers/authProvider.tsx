@@ -16,17 +16,18 @@ export const AuthProvider = ({ children }: Props) => {
   const { isAuth, error, loading } = useSelector(
     (state: RootState) => state.auth,
   );
-  const token = authStorage.getToken();
-  const dispatch = useDispatch();
 
+  const dispatch = useDispatch();
   const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
+    const token = authStorage.getToken();
+
     if (token) {
       dispatch(authUpdateState(token));
     }
-  }, [token, dispatch]);
+  }, [dispatch]);
 
   useEffect(() => {
     if (loading) return;

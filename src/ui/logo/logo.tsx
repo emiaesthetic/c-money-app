@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import styles from './logo.module.css';
 
 import LogoIcon from './img/logo.svg?react';
@@ -8,12 +10,12 @@ interface Props {
 
 export const Logo = ({ isAuth }: Props) => {
   return (
-    <a
+    <Link
       className={styles.logo}
-      href={isAuth ? '/accounts' : '/'}
+      to={isAuth ? '/accounts' : '/'}
       aria-label="Логотип C-Money"
     >
       <LogoIcon />
-    </a>
+    </Link>
   );
 };

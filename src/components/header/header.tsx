@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import { useAuth } from '@/hooks';
 import { Button } from '@/ui/button';
 import { Layout } from '@/ui/layout';
@@ -20,14 +22,14 @@ export const Header = () => {
             <div className={styles.nav}>
               <ul className={styles.list}>
                 <li>
-                  <a className={styles.link} href="/currencies">
+                  <Link className={styles.link} to="/accounts">
                     Счета
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className={styles.link} href="/exchange">
+                  <Link className={styles.link} to="/exchange">
                     Обмен
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <Button
