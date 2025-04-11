@@ -12,35 +12,42 @@ interface Props {
   transactions: ITransaction[];
 }
 
-export const History = ({ account, transactions }: Props) => {
-  const Row = ({
-    index,
-    style,
-  }: {
-    index: number;
-    style: React.CSSProperties;
-  }) => {
-    const { amount, date, to, from } = transactions[index];
-    const isOutgoing = from === account;
+interface ListChildComponentProps {
+  index: number;
+  style: React.CSSProperties;
+}
 
-    return (
-      <div className={styles.row} style={style} role="row">
-        <div className={styles.rowCell} role="cell">
-          {isOutgoing ? to : from}
-        </div>
-        <div
-          className={`${styles.rowCell} ${isOutgoing ? styles.negativeNum : styles.positiveNum}`}
-          role="cell"
-        >
-          {amount}
-        </div>
-        <div className={styles.rowCell} role="cell">
-          {formatDate(date)}
-        </div>
+const Row = ({
+  account,
+  transaction,
+  style,
+}: {
+  account: string;
+  transaction: ITransaction;
+  style: React.CSSProperties;
+}) => {
+  const { amount, date, to, from } = transaction;
+  const isOutgoing = from === account;
+
+  return (
+    <div className={styles.row} style={style} role="row">
+      <div className={styles.rowCell} role="cell">
+        {isOutgoing ? to : from}
       </div>
-    );
-  };
+      <div
+        className={`${styles.rowCell} ${isOutgoing ? styles.negativeNum : styles.positiveNum}`}
+        role="cell"
+      >
+        {amount}
+      </div>
+      <div className={styles.rowCell} role="cell">
+        {formatDate(date)}
+      </div>
+    </div>
+  );
+};
 
+export const History = ({ account, transactions }: Props) => {
   return (
     <div className={styles.history}>
       <Heading level="h3" size="sizeMedium" marginBottom="mbSmall">
@@ -62,8 +69,16 @@ export const History = ({ account, transactions }: Props) => {
           itemCount={transactions.length}
           itemSize={42}
           width="100%"
+          className={styles.virtualList}
         >
-          {Row}
+          {({ index, style }: ListChildComponentProps) => (
+            <Row
+              key={index}
+              account={account}
+              transaction={transactions[index]}
+              style={style}
+            />
+          )}
         </List>
       </div>
     </div>

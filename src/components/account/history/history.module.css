@@ -23,19 +23,6 @@
   scrollbar-gutter: stable;
 }
 
-.header.hasScroll {
-  overflow-y: scroll;
-  scrollbar-color: transparent transparent;
-}
-
-.header.hasScroll::-webkit-scrollbar-thumb {
-  background-color: transparent;
-}
-
-.header.hasScroll::-webkit-scrollbar-track {
-  background-color: transparent;
-}
-
 .headerCell {
   padding: 12px;
   border-left: 1px solid var(--color-dark);
@@ -87,13 +74,31 @@
   content: '-';
 }
 
-.virtualList {
-  overflow-y: auto;
-  scrollbar-width: none;
+/* stylelint-disable at-rule-prelude-no-invalid */
+/* stylelint-disable at-rule-no-vendor-prefix */
+@-moz-document url-prefix() {
+  .virtualList,
+  .header.hasScroll {
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-light-purple) transparent;
+  }
 }
 
-.virtualList::-webkit-scrollbar {
-  display: none;
+.virtualList::-webkit-scrollbar,
+.header.hasScroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.virtualList::-webkit-scrollbar-track,
+.header.hasScroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.virtualList::-webkit-scrollbar-thumb,
+.header.hasScroll::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: var(--color-light-purple);
 }
 
 @media (width <= 1280px) {
