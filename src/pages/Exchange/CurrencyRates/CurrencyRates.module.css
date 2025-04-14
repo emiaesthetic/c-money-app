@@ -1,0 +1,15 @@
+.currencyRates {
+  flex-shrink: 2;
+  width: 100%;
+  max-width: 580px;
+  padding: 20px;
+  border-radius: var(--border-radius-large);
+  background-color: var(--background-secondary);
+}
+
+@media (width <= 1024px) {
+  .currencyRates {
+    flex-shrink: 1;
+    max-width: 100%;
+  }
+}

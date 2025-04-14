@@ -2,12 +2,12 @@ import { PayloadAction } from '@reduxjs/toolkit';
 import axios, { AxiosError, AxiosResponse } from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
+import { API, authStorage } from '@/services';
 import {
   IAllCurrenciesResponse,
   IConverterForm,
   IMineCurrenciesResponse,
 } from '@/types';
-import { API, authStorage } from '@/utils';
 
 import {
   allCurrenciesFailure,

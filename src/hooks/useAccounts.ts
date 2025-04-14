@@ -5,7 +5,7 @@ import { RootState } from '@/store';
 import { accountsRequest } from '@/store/accounts';
 
 export const useAccounts = () => {
-  const { data, error, loading, creating } = useSelector(
+  const { data, error, loading } = useSelector(
     (state: RootState) => state.accounts,
   );
   const dispatch = useDispatch();
@@ -14,5 +14,5 @@ export const useAccounts = () => {
     dispatch(accountsRequest());
   }, [dispatch]);
 
-  return { data, error, loading, creating };
+  return { data, error, loading };
 };

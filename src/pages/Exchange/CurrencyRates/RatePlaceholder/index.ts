@@ -1,0 +1,1 @@
+export { RatePlaceholder } from './RatePlaceholder';

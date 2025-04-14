@@ -1,0 +1,22 @@
+.transactionForm {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 20px;
+  justify-content: space-between;
+  align-items: end;
+  padding-bottom: 20px;
+}
+
+.transactionFormInputWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (width <= 576px) {
+  .transactionForm {
+    grid-template-rows: repeat(3, 60px);
+    grid-template-columns: 1fr;
+    row-gap: 24px;
+  }
+}

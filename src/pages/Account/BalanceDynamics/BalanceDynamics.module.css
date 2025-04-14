@@ -1,0 +1,42 @@
+.balanceDynamics {
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+  font-size: var(--font-size-base);
+  color: var(--foreground-secondary);
+}
+
+.balanceDynamicsChart {
+  width: 100%;
+  padding: 16px 20px;
+  border-radius: var(--border-radius-large);
+  background-color: var(--background-secondary);
+}
+
+.balanceDynamicsSelect {
+  display: flex;
+  margin-bottom: 20px;
+  margin-left: auto;
+  border: 2px solid transparent;
+  border-radius: var(--border-radius-small);
+  background-color: initial;
+  color: inherit;
+  transition: var(--transition);
+  transition-property: border-color;
+}
+
+.balanceDynamicsSelect:hover,
+.balanceDynamicsSelect:focus-visible {
+  border-color: var(--color-light-purple);
+}
+
+.balanceDynamicsSelect:focus {
+  outline: none;
+}
+
+@media (width <= 1280px) {
+  .balanceDynamics {
+    flex-basis: unset;
+    width: 100%;
+  }
+}

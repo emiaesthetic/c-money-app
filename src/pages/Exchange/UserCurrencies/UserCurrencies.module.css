@@ -1,0 +1,38 @@
+.userCurrencies {
+  flex-shrink: 0;
+  width: max-content;
+  max-width: 100%;
+  padding: 16px 20px;
+  border-radius: var(--border-radius-large);
+  font-size: var(--font-size-base);
+  background-color: var(--background-secondary);
+}
+
+.userCurrenciesTitle {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 16px;
+  font-weight: 700;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.userCurrenciesItem {
+  display: flex;
+  column-gap: 16px;
+  align-items: center;
+}
+
+.userCurrenciesItem:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.userCurrenciesLabel {
+  width: 36px;
+  color: var(--foreground-secondary);
+}
+
+.userCurrenciesValue {
+  font-weight: 700;
+  color: var(--foreground-primary);
+}

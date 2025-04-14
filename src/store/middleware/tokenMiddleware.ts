@@ -1,6 +1,6 @@
 import { Middleware } from '@reduxjs/toolkit';
 
-import { authStorage } from '@/utils';
+import { authStorage } from '@/services';
 import { authClearState, authSuccessRequest, authUpdateState } from '../auth';
 
 export const tokenMiddleware: Middleware = _store => next => action => {

@@ -1,0 +1,42 @@
+.rateItem {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rateItem:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.rateDecor {
+  flex-grow: 1;
+  border-bottom: 1px solid var(--color-dark);
+}
+
+.rateValue {
+  display: flex;
+  column-gap: 5px;
+  align-items: center;
+}
+
+.rateIndicate {
+  flex-shrink: 0;
+  width: 9px;
+  height: 7px;
+}
+
+.ratePositive:before {
+  content: '+';
+}
+
+.rateNegative:before {
+  content: '-';
+}
+
+.indicatePositive {
+  color: var(--color-green);
+}
+
+.indicateNegative {
+  color: var(--color-red);
+  rotate: 180deg;
+}

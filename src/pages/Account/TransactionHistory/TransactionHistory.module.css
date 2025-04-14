@@ -1,0 +1,74 @@
+.transactionHistory {
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
+.transactionHistoryContent {
+  overflow-x: auto;
+  max-height: 467px;
+  padding: 16px 20px;
+  border-radius: var(--border-radius-large);
+  background-color: var(--background-secondary);
+}
+
+.transactionHistoryHeader {
+  display: grid;
+  grid-template-columns: minmax(150px, 2fr) minmax(100px, 1fr) minmax(
+      100px,
+      1fr
+    );
+  column-gap: 12px;
+  border-bottom: 1px solid var(--color-dark);
+}
+
+.transactionHistoryCell {
+  padding: 12px;
+  border-left: 1px solid var(--color-dark);
+  font-weight: 400;
+  text-align: left;
+  color: var(--foreground-secondary);
+}
+
+.transactionHistoryCell:first-child {
+  padding-left: 0;
+  border-left: none;
+}
+
+.virtualList,
+.transactionHistoryHeader.hasScroll {
+  overflow-y: scroll;
+}
+
+.virtualList::-webkit-scrollbar,
+.transactionHistoryHeader.hasScroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.virtualList::-webkit-scrollbar-track,
+.transactionHistoryHeader.hasScroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.virtualList::-webkit-scrollbar-thumb,
+.transactionHistoryHeader.hasScroll::-webkit-scrollbar-thumb {
+  border-radius: var(--border-radius-small);
+  background-color: var(--color-light-purple);
+}
+
+/* stylelint-disable at-rule-prelude-no-invalid */
+/* stylelint-disable at-rule-no-vendor-prefix */
+@-moz-document url-prefix() {
+  .virtualList,
+  .transactionHistoryHeader.hasScroll {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-light-purple) transparent;
+  }
+}
+
+@media (width <= 1280px) {
+  .transactionHistory {
+    flex-basis: unset;
+    width: 100%;
+  }
+}

@@ -1,0 +1,37 @@
+.transactionItem {
+  display: grid;
+  grid-template-columns: minmax(150px, 2fr) minmax(100px, 1fr) minmax(
+      100px,
+      1fr
+    );
+  column-gap: 12px;
+}
+
+.transactionItemCell {
+  padding: 12px;
+  border-left: 1px solid var(--color-dark);
+  font-weight: 700;
+}
+
+.transactionItemCell:first-child {
+  overflow: hidden;
+  padding-left: unset;
+  border-left: none;
+  text-overflow: ellipsis;
+}
+
+.positiveNum {
+  color: var(--color-green);
+}
+
+.positiveNum:before {
+  content: '+';
+}
+
+.negativeNum {
+  color: var(--color-red);
+}
+
+.negativeNum:before {
+  content: '-';
+}

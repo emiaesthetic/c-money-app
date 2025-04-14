@@ -1,5 +1,6 @@
 import { IRate } from '@/types';
-import { API } from '@/utils';
+
+import { API } from './api';
 
 let socket: WebSocket | null = null;
 

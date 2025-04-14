@@ -1,0 +1,13 @@
+.error {
+  position: absolute;
+  bottom: -18px;
+  left: 10px;
+  font-size: var(--font-size-small);
+  color: var(--color-red);
+}
+
+@media (width <= 768px) {
+  .error {
+    bottom: -15px;
+  }
+}

@@ -2,8 +2,8 @@ import { PayloadAction } from '@reduxjs/toolkit';
 import axios, { AxiosError, AxiosResponse } from 'axios';
 import { put, select, takeLatest } from 'redux-saga/effects';
 
+import { API, authStorage } from '@/services';
 import { IAccountResponse, ITransactionForm } from '@/types';
-import { API, authStorage } from '@/utils';
 import { RootState } from '..';
 
 import {

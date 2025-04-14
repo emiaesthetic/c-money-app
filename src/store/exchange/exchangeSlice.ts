@@ -6,11 +6,13 @@ const initialState: {
   all: TCurrency[];
   mine: CurrencyBalance[];
   error: string;
+  convertError: string;
   loading: boolean;
 } = {
   all: [],
   mine: [],
   error: '',
+  convertError: '',
   loading: false,
 };
 
@@ -23,7 +25,7 @@ const exchangeSlice = createSlice({
       state.loading = true;
     },
     allCurrenciesSuccess: (state, action: PayloadAction<TCurrency[]>) => {
-      state.all = action.payload;
+      state.all = action.payload.sort();
       state.loading = false;
     },
     allCurrenciesFailure: (state, action: PayloadAction<string>) => {
@@ -38,9 +40,9 @@ const exchangeSlice = createSlice({
       state,
       action: PayloadAction<Record<TCurrency, CurrencyBalance>>,
     ) => {
-      state.mine = Object.values(action.payload).filter(
-        currency => currency.amount > 0,
-      );
+      state.mine = Object.values(action.payload)
+        .filter(currency => currency.amount > 0)
+        .sort();
       state.loading = false;
     },
     mineCurrenciesFailure: (state, action: PayloadAction<string>) => {
@@ -48,20 +50,20 @@ const exchangeSlice = createSlice({
       state.loading = false;
     },
     changeCurrenciesRequest: (state, _: PayloadAction<IConverterForm>) => {
-      state.error = '';
+      state.convertError = '';
       state.loading = true;
     },
     changeCurrenciesSuccess: (
       state,
       action: PayloadAction<Record<TCurrency, CurrencyBalance>>,
     ) => {
-      state.mine = Object.values(action.payload).filter(
-        currency => currency.amount > 0,
-      );
+      state.mine = Object.values(action.payload)
+        .filter(currency => currency.amount > 0)
+        .sort();
       state.loading = false;
     },
     changeCurrenciesFailure: (state, action: PayloadAction<string>) => {
-      state.error = action.payload;
+      state.convertError = action.payload;
       state.loading = false;
     },
   },

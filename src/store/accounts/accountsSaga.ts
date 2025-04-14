@@ -1,8 +1,8 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
+import { API, authStorage } from '@/services';
 import { IAccountResponse, IAccountsResponse } from '@/types';
-import { API, authStorage } from '@/utils';
 
 import {
   accountsFailureRequest,

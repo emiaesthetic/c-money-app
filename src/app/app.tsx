@@ -1,16 +1,16 @@
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 
-import { Account } from '@/components/account';
-import { Auth } from '@/components/auth';
-import { AuthGuard } from '@/components/auth/guard';
-import { Exchange } from '@/components/exchange';
-import { Footer } from '@/components/footer';
-import { Header } from '@/components/header';
-import { Home } from '@/components/home';
-import { Main } from '@/components/main';
+import { Account } from '@/pages/Account';
+import { Accounts } from '@/pages/Accounts';
+import { Auth } from '@/pages/Auth';
+import { AuthGuard } from '@/pages/Auth/AuthGuard';
+import { Exchange } from '@/pages/Exchange';
+import { authStorage } from '@/services';
 import { authUpdateState } from '@/store/auth';
-import { authStorage } from '@/utils';
+import { Footer } from '@/widgets/Footer';
+import { Header } from '@/widgets/Header';
+import { Main } from '@/widgets/Main';
 
 import { AuthProvider } from './providers';
 
@@ -32,7 +32,7 @@ export const App = () => {
             <Route path="/login" element={<Auth />} />
 
             <Route element={<AuthGuard />}>
-              <Route path="/accounts" element={<Home />} />
+              <Route path="/accounts" element={<Accounts />} />
               <Route path="/account/:id" element={<Account />} />
               <Route path="/exchange" element={<Exchange />} />
             </Route>

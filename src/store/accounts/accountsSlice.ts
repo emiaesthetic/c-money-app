@@ -12,12 +12,10 @@ const initialState: {
   data: IAccount[];
   error: string;
   loading: boolean;
-  creating: boolean;
 } = {
   data: [],
   error: '',
   loading: false,
-  creating: false,
 };
 
 const accountsSlice = createSlice({
@@ -46,7 +44,7 @@ const accountsSlice = createSlice({
     },
     createAccountRequest: state => {
       state.error = '';
-      state.creating = true;
+      state.loading = true;
     },
     createAccountSuccess: (state, action: PayloadAction<IAccount>) => {
       const newAccount = {
@@ -57,11 +55,11 @@ const accountsSlice = createSlice({
       };
       state.data = [newAccount, ...state.data];
       state.error = '';
-      state.creating = false;
+      state.loading = false;
     },
     createAccountFailure: (state, action: PayloadAction<string>) => {
       state.error = action.payload;
-      state.creating = false;
+      state.loading = false;
     },
   },
 });
