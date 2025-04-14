@@ -13,6 +13,10 @@
   font-size: var(--font-size-medium);
 }
 
+.sizeSmall {
+  font-size: var(--font-size-medium-sm);
+}
+
 .mbLarge {
   margin-bottom: 70px;
 }

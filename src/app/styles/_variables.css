@@ -52,6 +52,7 @@
   --font-size-large: 38px;
   --font-size-card: 32px;
   --font-size-medium: 26px;
+  --font-size-medium-sm: 20px;
   --font-size-controls: 18px;
   --font-size-base: 15px;
   --font-size-small: 14px;
@@ -78,6 +79,7 @@
     --font-size-large: 30px;
     --font-size-card: 24px;
     --font-size-medium: 20px;
+    --font-size-medium-sm: 18px;
     --font-size-controls: 15px;
     --font-size-base: 12px;
     --font-size-small: 11px;
@@ -90,5 +92,6 @@
     --font-size-large: 24px;
     --font-size-card: 20px;
     --font-size-medium: 18px;
+    --font-size-medium-sm: 16px;
   }
 }

@@ -2,12 +2,12 @@ import { createContext } from 'react';
 
 import { IAuthContext } from '@/types';
 
-const initialAuthState: IAuthContext = {
-  isAuth: null,
-  error: null,
-  loading: null,
+const initialState: IAuthContext = {
+  isAuth: false,
+  error: '',
+  loading: false,
   login: () => {},
   logout: () => {},
 };
 
-export const AuthContext = createContext(initialAuthState);
+export const AuthContext = createContext(initialState);

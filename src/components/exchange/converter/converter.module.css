@@ -1,0 +1,75 @@
+.converter {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: var(--border-radius-large);
+  background-color: var(--background-secondary);
+}
+
+.converterForm {
+  display: inline-flex;
+  flex-direction: column;
+  row-gap: 24px;
+  align-items: end;
+  width: 100%;
+}
+
+.converterFormWrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 35px;
+  justify-content: space-between;
+}
+
+.converterInputWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.converterSelect {
+  padding: 6px 10px;
+  border: 2px solid transparent;
+  border-radius: var(--border-radius-small);
+  font-weight: 700;
+  font-family: inherit;
+  background-color: var(--color-white);
+  color: var(--color-dark);
+  transition: var(--transition);
+  transition-property: border-color;
+}
+
+.converterSelect:hover,
+.converterSelect:focus-visible {
+  border-color: var(--color-purple);
+}
+
+.converterSelect:focus {
+  outline: none;
+}
+
+.converterFormButton {
+  margin-left: auto;
+}
+
+@media (width <= 1024px) {
+  .converterFormWrapper {
+    justify-content: stretch;
+    align-self: stretch;
+  }
+}
+
+@media (width <= 620px) {
+  .converter {
+    margin-bottom: 24px;
+  }
+
+  .converterForm {
+    row-gap: 24px;
+  }
+
+  .converterFormWrapper {
+    grid-template-columns: 1fr;
+    row-gap: 24px;
+  }
+}

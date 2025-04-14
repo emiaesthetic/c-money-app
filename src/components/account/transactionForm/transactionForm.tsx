@@ -45,10 +45,10 @@ export const TransactionForm = ({ loading, onSubmit }: Props) => {
               required: { value: true, message: 'Обязательное поле' },
               pattern: {
                 value: /^\d+$/,
-                message: 'Только цифры',
+                message: 'Только числа',
               },
             })}
-            type="text"
+            type="number"
             id="account"
             aria-invalid={!!errors.account}
             disabled={!!loading}
@@ -61,11 +61,15 @@ export const TransactionForm = ({ loading, onSubmit }: Props) => {
           <Input
             {...register('amount', {
               required: { value: true, message: 'Обязательное поле' },
+              pattern: {
+                value: /^\d+(\.\d+)?$/,
+                message: 'Только числа (целые или дробные)',
+              },
               validate: {
                 positiveNumber: value => +value > 0 || 'Больше нуля',
               },
             })}
-            type="amount"
+            type="number"
             id="amount"
             aria-invalid={!!errors.amount}
             disabled={!!loading}

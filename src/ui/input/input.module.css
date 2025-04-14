@@ -1,7 +1,9 @@
 .input {
   width: 100%;
   border: 2px solid transparent;
+  font-weight: 700;
   line-height: 1;
+  color: var(--color-dark);
   transition: var(--transition);
   transition-property: border-color;
 }
@@ -33,13 +35,13 @@
 }
 
 .inputCompact {
-  padding: 11px 10px;
+  padding: 7px 10px;
   border-radius: var(--border-radius-small);
   font-size: var(--font-size-base);
 }
 
 @media (width <= 768px) {
-  .input {
+  .inputDefault {
     padding: 12px;
   }
 }

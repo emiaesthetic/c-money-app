@@ -4,7 +4,7 @@ import styles from './heading.module.css';
 
 interface Props {
   level?: 'h1' | 'h2' | 'h3' | 'h4';
-  size?: 'sizeLarge' | 'sizeMedium';
+  size?: 'sizeLarge' | 'sizeMedium' | 'sizeSmall';
   marginBottom?: 'mbLarge' | 'mbMedium' | 'mbSmall';
   center?: boolean;
   children: React.ReactNode;

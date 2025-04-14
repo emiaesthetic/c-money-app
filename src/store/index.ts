@@ -4,6 +4,7 @@ import createSagaMiddleware from 'redux-saga';
 import { accountReducer } from './account';
 import { accountsReducer } from './accounts';
 import { authReducer } from './auth';
+import { exchangeReducer } from './exchange';
 import { tokenMiddleware } from './middleware';
 import { rootSaga } from './saga';
 
@@ -14,6 +15,7 @@ export const store = configureStore({
     auth: authReducer,
     account: accountReducer,
     accounts: accountsReducer,
+    exchange: exchangeReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware().concat(tokenMiddleware, sagaMiddleware),
