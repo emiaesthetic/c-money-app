@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
 import { Account } from '@/pages/Account';
 import { Accounts } from '@/pages/Accounts';
@@ -36,6 +36,8 @@ export const App = () => {
               <Route path="/account/:id" element={<Account />} />
               <Route path="/exchange" element={<Exchange />} />
             </Route>
+
+            <Route path="*" element={<Navigate to="/accounts" replace />} />
           </Routes>
         </Main>
         <Footer />

@@ -9,10 +9,8 @@ import CloseIcon from './img/close.svg?react';
 import ErrorIcon from './img/error.svg?react';
 import SuccessIcon from './img/success.svg?react';
 
-type NotificationType = 'success' | 'error';
-
 interface Props {
-  type: NotificationType;
+  type: 'success' | 'error';
   message: string;
   position?: 'topRight';
 }
@@ -36,7 +34,7 @@ export const Notification = ({
 
       const timer = setTimeout(() => {
         setIsShow(false);
-      }, 3000);
+      }, 5000);
 
       return () => clearTimeout(timer);
     }

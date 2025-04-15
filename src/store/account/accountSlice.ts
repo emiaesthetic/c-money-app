@@ -11,15 +11,13 @@ import {
 const initialState: {
   data: IAccount | null;
   error: string;
-  errorTransaction: string;
+  transactionStatus: '' | 'success' | 'error';
   loading: boolean;
-  isProcessing: boolean;
 } = {
   data: null,
   error: '',
-  errorTransaction: '',
+  transactionStatus: '',
   loading: false,
-  isProcessing: false,
 };
 
 const accountSlice = createSlice({
@@ -28,7 +26,7 @@ const accountSlice = createSlice({
   reducers: {
     accountRequest: (state, _: PayloadAction<string>) => {
       state.error = '';
-      state.errorTransaction = '';
+      state.transactionStatus = '';
       state.loading = true;
     },
     accountSuccessRequest: (state, action: PayloadAction<IAccount>) => {
@@ -39,7 +37,6 @@ const accountSlice = createSlice({
         formattedDate: formatDate(action.payload.date),
         isoDate: getIsoDate(action.payload.date),
       };
-      state.error = '';
       state.loading = false;
     },
     accountFailureRequest: (state, action: PayloadAction<string>) => {
@@ -48,8 +45,9 @@ const accountSlice = createSlice({
       state.loading = false;
     },
     accountTransactionRequest: (state, _: PayloadAction<ITransactionForm>) => {
-      state.errorTransaction = '';
-      state.isProcessing = true;
+      state.error = '';
+      state.transactionStatus = '';
+      state.loading = true;
     },
     accountTransactionSuccess: (state, action: PayloadAction<IAccount>) => {
       state.data = {
@@ -59,12 +57,13 @@ const accountSlice = createSlice({
         formattedDate: formatDate(action.payload.date),
         isoDate: getIsoDate(action.payload.date),
       };
-      state.errorTransaction = '';
-      state.isProcessing = false;
+      state.transactionStatus = 'success';
+      state.loading = false;
     },
     accountTransactionFailure: (state, action: PayloadAction<string>) => {
-      state.errorTransaction = action.payload;
-      state.isProcessing = false;
+      state.error = action.payload;
+      state.transactionStatus = 'error';
+      state.loading = false;
     },
   },
 });

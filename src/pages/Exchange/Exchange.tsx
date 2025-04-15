@@ -22,17 +22,15 @@ import styles from './Exchange.module.css';
 const MAX_RATES_LENGTH = 10;
 
 export const Exchange = () => {
-  const { all, mine, error, convertError, loading } = useExchange();
+  const { all, mine, error, convertStatus, loading } = useExchange();
   const showLoading = useDelayLoading(loading);
   const [rates, setRates] = useState<IRate[]>([]);
   const [ratesError, setRatesError] = useState<string>('');
 
   const dispatch = useDispatch();
-  const [hasConvertCompleted, setHasConvertCompleted] = useState(false);
 
   const handleSubmit = (data: IConverterForm) => {
     dispatch(changeCurrenciesRequest(data));
-    setHasConvertCompleted(true);
   };
 
   const handleNewRate = useCallback((newRate: IRate) => {
@@ -54,19 +52,9 @@ export const Exchange = () => {
     };
   }, [handleNewRate]);
 
-  useEffect(() => {
-    if (hasConvertCompleted) {
-      const timer = setTimeout(() => {
-        setHasConvertCompleted(false);
-      }, 3000);
-
-      return () => clearTimeout(timer);
-    }
-  }, [hasConvertCompleted]);
-
   if (showLoading) return <Preloader />;
 
-  if (error) return <h1>{error}</h1>;
+  if (error && !convertStatus) return <h1>{error}</h1>;
 
   return (
     <>
@@ -88,11 +76,14 @@ export const Exchange = () => {
           </div>
         </div>
       </section>
-      {hasConvertCompleted && convertError && (
-        <Notification type="error" message={getErrorMessage(convertError)} />
-      )}
-      {hasConvertCompleted && !convertError && (
-        <Notification type="success" message="Обмен валют успешно выполнен!" />
+
+      {convertStatus && (
+        <Notification
+          type={convertStatus}
+          message={
+            error ? getErrorMessage(error) : 'Обмен валют выполнен успешно!'
+          }
+        />
       )}
     </>
   );

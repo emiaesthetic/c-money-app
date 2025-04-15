@@ -70,6 +70,7 @@ export const TransactionForm = ({ loading, onSubmit }: Props) => {
               },
             })}
             type="number"
+            step="any"
             id="amount"
             aria-invalid={!!errors.amount}
             disabled={!!loading}

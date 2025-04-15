@@ -20,8 +20,7 @@ import ArrowIcon from './img/arrow.svg?react';
 
 export const Account = () => {
   const { id } = useParams();
-  const { data, error, errorTransaction, loading, isProcessing } =
-    useAccount(id);
+  const { data, error, transactionStatus, loading } = useAccount(id);
   const showLoading = useDelayLoading(loading);
 
   const currentYear = new Date().getFullYear();
@@ -31,7 +30,6 @@ export const Account = () => {
   );
 
   const dispatch = useDispatch();
-  const [hasTransactionCompleted, setHasTransactionCompleted] = useState(false);
 
   const getSelectOptions = () => {
     if (!data) return [];
@@ -49,7 +47,6 @@ export const Account = () => {
 
   const handleSubmit = (data: ITransactionForm) => {
     dispatch(accountTransactionRequest(data));
-    setHasTransactionCompleted(true);
   };
 
   useEffect(() => {
@@ -58,19 +55,9 @@ export const Account = () => {
     }
   }, [data, year]);
 
-  useEffect(() => {
-    if (hasTransactionCompleted) {
-      const timer = setTimeout(() => {
-        setHasTransactionCompleted(false);
-      }, 3000);
-
-      return () => clearTimeout(timer);
-    }
-  }, [hasTransactionCompleted]);
-
   if (showLoading) return <Preloader />;
 
-  if (error) return <h1>{error}</h1>;
+  if (error && !transactionStatus) return <h1>{getErrorMessage(error)}</h1>;
 
   if (!data) return null;
 
@@ -93,17 +80,15 @@ export const Account = () => {
           <TransactionHistory {...data} />
         </div>
 
-        <TransactionForm loading={isProcessing} onSubmit={handleSubmit} />
+        <TransactionForm loading={loading} onSubmit={handleSubmit} />
       </section>
-      {hasTransactionCompleted && errorTransaction && (
+      {transactionStatus && (
         <Notification
-          type="error"
-          message={getErrorMessage(errorTransaction)}
+          type={transactionStatus}
+          message={
+            error ? getErrorMessage(error) : 'Транзакция выполнена успешно!'
+          }
         />
-      )}
-
-      {hasTransactionCompleted && !errorTransaction && (
-        <Notification type="success" message="Транзакция успешно выполнена!" />
       )}
     </>
   );

@@ -5,7 +5,7 @@ import { RootState } from '@/store';
 import { allCurrenciesRequest, mineCurrenciesRequest } from '@/store/exchange';
 
 export const useExchange = () => {
-  const { all, mine, error, convertError, loading } = useSelector(
+  const { all, mine, error, convertStatus, loading } = useSelector(
     (state: RootState) => state.exchange,
   );
 
@@ -16,5 +16,5 @@ export const useExchange = () => {
     dispatch(mineCurrenciesRequest());
   }, [dispatch]);
 
-  return { all, mine, error, convertError, loading };
+  return { all, mine, error, convertStatus, loading };
 };

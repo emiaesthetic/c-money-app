@@ -115,6 +115,7 @@ export const CurrencyConverter = ({
               })}
               variant="compact"
               type="number"
+              step="any"
               id="amount"
               aria-invalid={!!errors.amount}
               disabled={isLoading}
