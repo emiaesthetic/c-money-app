@@ -33,7 +33,7 @@
 
 @media (width <= 576px) {
   .exchangeContent {
-    row-gap: 24px;
+    row-gap: 30px;
   }
 
   .exchangeContentWrapper {

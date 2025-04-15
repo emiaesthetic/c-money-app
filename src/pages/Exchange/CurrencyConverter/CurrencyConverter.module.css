@@ -1,6 +1,6 @@
 .currencyConverter {
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   padding: 20px;
   border-radius: var(--border-radius-large);
   background-color: var(--background-secondary);
@@ -28,7 +28,8 @@
 }
 
 .currencyConverterSelect {
-  padding: 6px 10px;
+  padding: 8.5px 10px;
+  padding-right: 30px;
   border: 2px solid transparent;
   border-radius: var(--border-radius-small);
   font-weight: 700;
@@ -48,6 +49,16 @@
   outline: none;
 }
 
+@supports (-webkit-appearance: none) {
+  .currencyConverterSelect {
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23210b36"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-position: right 10px center;
+    background-size: 20px;
+    background-repeat: no-repeat;
+    appearance: none;
+  }
+}
+
 @media (width <= 1024px) {
   .currencyConverterFormWrapper {
     grid-template-rows: repeat(2, auto);
@@ -63,10 +74,6 @@
 }
 
 @media (width <= 576px) {
-  .currencyConverter {
-    margin-bottom: 24px;
-  }
-
   .currencyConverterFormWrapper {
     grid-template-columns: 1fr;
     gap: 20px;

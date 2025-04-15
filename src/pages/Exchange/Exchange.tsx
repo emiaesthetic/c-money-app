@@ -59,7 +59,7 @@ export const Exchange = () => {
   return (
     <>
       <section className={styles.exchange}>
-        <Heading size="sizeMedium" marginBottom="mbMedium">
+        <Heading size="sizeMedium" marginBottom="mbLarge">
           Обмен валюты
         </Heading>
 

@@ -57,7 +57,7 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   justify-content: space-between;
-  margin-bottom: 80px;
+  margin-bottom: 70px;
 }
 
 .accountContent > * {
@@ -68,7 +68,7 @@
 @media (width <= 1280px) {
   .accountContent {
     grid-template-columns: 1fr;
-    row-gap: 80px;
+    row-gap: 70px;
   }
 }
 
@@ -88,19 +88,18 @@
   }
 
   .accountContent {
-    column-gap: 60px;
-    margin-bottom: 60px;
+    row-gap: 40px;
+    margin-bottom: 40px;
   }
 }
 
 @media (width <= 480px) {
   .accountHeader {
-    row-gap: 20px;
-    margin-bottom: 20px;
+    row-gap: 30px;
   }
 
   .accountContent {
-    column-gap: 40px;
+    row-gap: 40px;
     margin-bottom: 40px;
   }
 }
