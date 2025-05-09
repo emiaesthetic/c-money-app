@@ -1,4 +1,5 @@
 import { ChangeEvent } from 'react';
+import { Line } from 'react-chartjs-2';
 import {
   CategoryScale,
   Chart as ChartJS,
@@ -11,7 +12,6 @@ import {
   Title,
   Tooltip,
 } from 'chart.js';
-import { Line } from 'react-chartjs-2';
 
 import { Heading } from '@/ui/Heading';
 

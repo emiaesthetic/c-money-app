@@ -1,6 +1,6 @@
-import styles from './Preloader.module.css';
-
 import PreloaderIcon from './img/preloader.svg?react';
+
+import styles from './Preloader.module.css';
 
 export const Preloader = () => {
   return (

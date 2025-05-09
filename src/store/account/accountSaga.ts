@@ -4,8 +4,8 @@ import { put, select, takeLatest } from 'redux-saga/effects';
 
 import { API, authStorage } from '@/services';
 import { IAccountResponse, ITransactionForm } from '@/types';
-import { RootState } from '..';
 
+import { RootState } from '..';
 import {
   accountFailureRequest,
   accountRequest,

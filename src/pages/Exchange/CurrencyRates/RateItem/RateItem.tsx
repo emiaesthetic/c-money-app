@@ -1,8 +1,8 @@
 import { IRate } from '@/types';
 
-import styles from './RateItem.module.css';
-
 import IndicatorIcon from './img/indicator.svg?react';
+
+import styles from './RateItem.module.css';
 
 export const RateItem = ({ rate }: { rate: IRate }) => {
   return (

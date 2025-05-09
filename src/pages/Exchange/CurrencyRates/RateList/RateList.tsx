@@ -1,4 +1,5 @@
 import { IRate } from '@/types';
+
 import { RateItem } from '../RateItem';
 
 import styles from './RateList.module.css';

@@ -10,7 +10,7 @@ import importPlugin from 'eslint-plugin-import';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
 
 export default tseslint.config(
-  { ignores: ["**/node_modules/**", "**/dist/**"] },
+  { ignores: ['node_modules', 'dist', 'build'] },
   {
     extends: [
       js.configs.recommended,
@@ -51,17 +51,18 @@ export default tseslint.config(
       'import/first': 'warn',
       'import/newline-after-import': 'warn',
       'import/no-duplicates': 'warn',
+      'import/order': 'off',
       'simple-import-sort/imports': [
         'warn',
         {
-          'groups': [
-            ['^\\u0000'],
-            ['^react$', '^@?\\w'],
-            ['^@', '^'],
-            ['^\\./'],
-            ['^.+\\.(css|scss)$'],
+          groups: [
+            ['^node:'],
+            ['^react', '^@?\\w'],
+            ['^@/'],
+            ['^\\.\\.(?!/?$)', '^\\.\\./?$', '^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
             ['^.+\\.svg\\?react'],
-            ['^.+\\.(gif|png|jpg|jpeg|webp|avif|svg)$']
+            ['^.+\\.(gif|png|jpg|jpeg|webp)$'],
+            ['^.+\\.(css|scss|less)$'],
           ]
         }
       ],

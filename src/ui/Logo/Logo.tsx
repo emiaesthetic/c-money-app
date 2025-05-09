@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 
-import styles from './Logo.module.css';
-
 import LogoIcon from './img/logo.svg?react';
+
+import styles from './Logo.module.css';
 
 interface Props {
   isAuth: boolean;

@@ -14,9 +14,9 @@ import { BalanceDynamics } from './BalanceDynamics';
 import { TransactionForm } from './TransactionForm';
 import { TransactionHistory } from './TransactionHistory';
 
-import styles from './Account.module.css';
-
 import ArrowIcon from './img/arrow.svg?react';
+
+import styles from './Account.module.css';
 
 export const Account = () => {
   const { id } = useParams();

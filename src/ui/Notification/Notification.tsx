@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 
 import { Button } from '../Button';
 
-import styles from './Notification.module.css';
-
 import CloseIcon from './img/close.svg?react';
 import ErrorIcon from './img/error.svg?react';
 import SuccessIcon from './img/success.svg?react';
+
+import styles from './Notification.module.css';
 
 interface Props {
   type: 'success' | 'error';

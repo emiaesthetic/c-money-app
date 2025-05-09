@@ -5,9 +5,9 @@ import { Button } from '@/ui/Button';
 import { Layout } from '@/ui/Layout';
 import { Logo } from '@/ui/Logo';
 
-import styles from './Header.module.css';
-
 import ExitIcon from './img/exit.svg?react';
+
+import styles from './Header.module.css';
 
 export const Header = () => {
   const { isAuth, logout } = useAuth();
